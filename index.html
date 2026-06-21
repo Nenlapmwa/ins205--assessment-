@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nenlap's static webpage project</title>
+  <style>
+    /* styling the body */
+  body {
+    background-color: rgb(204, 130, 60);
+    color: white;
+    font-family: calibri, sans-serif;
+    margin: 0;
+    max-width: 100%;
+    padding: 20px;
+    justify-content: center;
+
+  }
+
+    /* styling the h1 */
+    h1 {
+      text-align:center;
+
+    }
+
+    /* styling the button */
+    button {
+      height:2rem;
+      background-color: #e9a72e;
+      border:none;
+      border-radius: 2px;
+      color: white;
+    }
+
+    /* styling the sections */
+
+    section {
+      background-color: rgb(117, 60, 7);
+      margin: 20px;
+      padding: 10px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    /* styling the send button */
+
+    #send-btn {
+      display: block;
+      margin: 20px auto;
+    }
+
+    /* styling the send button to have hover effects */
+
+    #send-btn:hover {
+      filter: brightness(130%);
+      cursor: pointer;
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- adding elements to the body -->
+  <h1>My New Static Web Application</h1><hr>
+  <section>
+    <h2>My Intro</h2>
+    <p>This webpage was built by Nenlapmwa for INS 205 assessment
+    </p>
+    <!-- adding a paragraph to introduce myself -->
+    <p class="intro">
+      Welcome to my new static web application. my name is Nenlapmwa Ishaku. 
+      I am a atudent of University of Jos, department of computer science, 200level. 
+      I am currently learning how to build static web applications using HTML, CSS. 
+      I am excited to learn more about web development.
+    </p>
+    
+    <!-- adding a section to describe the page -->
+  </section><hr>
+  <section>
+    <h2>About This Page</h2>
+    <p>This application will be used for some course INS205. 
+      It is a simple static webpage built using HTML and CSS. 
+      To help us understand the web development.
+    </p>
+    </section><hr>
+
+    <!-- adding a section to describe how to contact me -->
+    <section>
+    <h2>Contact</h2>
+    <p>For enquiries, send me an Email</p>
+  </section>
+  <!-- adding a button to send email -->
+  <a href="mailto:2024ns0496@unijos.edu.ng"><button id="send-btn">Send Email</button></a>
+  <script>
+        /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           ------------------------------------------------------- */
+        const matric = "UJ/2024/NS/0496"; // <-- CHANGE THIS TO YOUR MAT. NO.
+
+	/* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */ 
+
+        function hashString(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+            }
+            return hash;
+        }
+
+        // Normalise input
+        const normalised = matric.trim().toUpperCase();
+
+        // Map the hash to a hue value between 0 and 359 degrees
+        const hue = hashString(normalised) % 360;
+
+        // Build an HSL colour: fixed saturation & lightness, varying hue
+        const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+        // Apply the colour to the Send Email button
+        document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+
+</body>
+</html>
